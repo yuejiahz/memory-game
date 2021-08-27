@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 
-function MemoryCard() {
+function MemoryCard(props) {
     let insects = ['Assassin Bug', 'Bed Bug', 'Madagascar Hissing Cockroach', 'Forest Caterpillar Hunter',
         'Ground Beetle', 'Flat Bark Beetle', 'Scarab Beetle', 'Ladybird Beetle', 'Seed Beetle',
         'Harnessed Moth', 'Monarch Butterfly', 'Io Moth', 'Horse Fly', 'Syrphid Fly', 'Long Horn Beetle',
@@ -16,9 +16,9 @@ function MemoryCard() {
         return (
             <div>
                 {index < 12 ?
-                    <div className="card">
+                    <div className="card" name={insects[randomNum]} onClick={props.handleClick}>
                         <img src={url} alt={insects[randomNum]} key={v4()} id={index} />
-                        <p className="img-text">{insects[randomNum]}</p>
+                        <p className="img-text">{insects[randomNum]} </p>
                     </div>
                     : null
                 }
