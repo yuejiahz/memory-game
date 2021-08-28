@@ -1,4 +1,5 @@
 import { v4 } from 'uuid';
+import { useEffect } from 'react';
 
 function MemoryCard(props) {
     let insects = ['Assassin Bug', 'Bed Bug', 'Madagascar Hissing Cockroach', 'Forest Caterpillar Hunter',
@@ -11,14 +12,14 @@ function MemoryCard(props) {
         'King Swallowtail', 'Metallic Green Bee', 'Weevil', 'Jewel Scarab', 'Giant Grasshopper']
 
     const card = insects.map((item, index) => {
-        let randomNum = Math.floor(Math.random() * 40)
+        let randomNum = Math.floor(Math.random() * 5)
         var url = "img/" + insects[randomNum] + ".jpg"
         return (
             <div>
                 {index < 12 ?
-                    <div className="card" name={insects[randomNum]} onClick={props.handleClick}>
-                        <img src={url} alt={insects[randomNum]} key={v4()} id={index} />
-                        <p className="img-text">{insects[randomNum]} </p>
+                    <div className="card" id={randomNum} name={insects[randomNum]} key={v4()} onClick={props.handleClick}>
+                        <img src={url} alt={insects[randomNum]}  name={insects[randomNum]} />
+                        <p className="img-text" name={insects[randomNum]}>{insects[randomNum]} </p>
                     </div>
                     : null
                 }
@@ -27,7 +28,7 @@ function MemoryCard(props) {
     })
 
     return (
-        <div className="card-container">
+        <div className="card-container" key={v4()}>
             {card}
         </div>
     );
