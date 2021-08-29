@@ -1,0 +1,2 @@
+header{display:flex;justify-content:space-between;padding:3%}.score{padding:2%;border:5px solid #d2691e;border-radius:5px}body{font-family:"Courier New",Courier,monospace}.card-container{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);padding:3%;height:100vh}.card{border:6px solid;margin:1%;box-sizing:border-box}img{width:100%}.img-text{background-color:#000;color:#fff8dc;font-size:100%;text-align:center;line-height:1.5rem;margin-bottom:0}
+/*# sourceMappingURL=main.540ea081.chunk.css.map */
