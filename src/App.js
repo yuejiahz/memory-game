@@ -31,6 +31,9 @@ function App() {
         if (bestScore < score) {
           setBestScore(score)
         }
+        if(bestScore == 40){
+          setMessage("Congratulations you get a full score!!")
+        }
         loggedItem = {};
         count = 0;
         items = [];
@@ -44,7 +47,7 @@ function App() {
   }
 // show message when losing game
   useEffect(() => {
-    setMessage("Opps you have clicked this before. You scored " + score + " points !")
+    setMessage("Opps you have clicked this before. You scored " + score + "/40 points! ")
     const timeout = setTimeout(() => {
       setMessage(null)
     }, 1500)
