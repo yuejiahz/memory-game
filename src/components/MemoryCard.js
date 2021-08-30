@@ -12,7 +12,7 @@ function MemoryCard(props) {
 
 
     const card = insects.map((item, index) => {
-        let randomNum = Math.floor(Math.random() * 10)
+        let randomNum = Math.floor(Math.random() * 40)
         var url = "img/" + insects[randomNum] + ".jpg";
         return (
             <div key={v4()}>
