@@ -2,6 +2,8 @@
 
 [View demo](https://yuejiahz.github.io/memory-game/)
 
+![memory-game-screenshot](https://github.com/yuejiahz/memory-game/public/insect-memory-game.png)
+
 A game to challenge your memory. Get points by clicking on an image but don't click on any more than once!
 
 ## Getting started
