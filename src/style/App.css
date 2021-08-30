@@ -16,23 +16,32 @@ body{
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(3,1fr);
     padding: 3%;
-    height: 130%;
 }
 .card{
     border: solid 6px;
     margin: 1%;
     box-sizing: border-box;
+    height:10rem;
+    display: grid;
+    grid-template-rows: 1fr 30%;
+    grid-template-areas: 
+    "image"
+    "text";
 }
 
 img{
+    grid-area: image;
     width:100%;
+    height:60%;
     object-fit:cover;
 }
 .img-text{
+    grid-area: text;
     background-color: black;
     color: cornsilk;
     font-size: 100%;
     text-align: center;
-    line-height:1.5rem;
-    margin-bottom: 0;
+    padding:2%;
+    width: 98%;
+    height: 55%;
 }
