@@ -16,8 +16,7 @@ body{
     grid-template-columns: repeat(4,1fr);
     grid-template-rows: repeat(3,1fr);
     padding: 3%;
-    height: 100vh;
-    width:100%;
+   object-fit:cover;
 }
 .card{
     border: solid 6px;
