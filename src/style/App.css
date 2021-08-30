@@ -17,6 +17,7 @@ body{
     grid-template-rows: repeat(3,1fr);
     padding: 3%;
     height: 100vh;
+    width:100%;
 }
 .card{
     border: solid 6px;
