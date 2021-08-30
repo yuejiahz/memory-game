@@ -1,15 +1,14 @@
 import { useState, useEffect } from 'react';
 
 function ScoreBoard(props) {
-  const style = {
-    color: "red",
-    backgroundColor: "black"
-  }
-  let [transition, setTransition] = useState(style);
+  let [transition, setTransition] = useState();
   
 //highlight best score when losing game
   useEffect(() => {
-    setTransition(style)
+    setTransition({
+      color: "red",
+      backgroundColor: "black"
+    })
     const timeout = setTimeout(() => {
       setTransition(null)
     }, 1500)
@@ -20,7 +19,7 @@ function ScoreBoard(props) {
 
   return (
     <div className="score">
-      <h3>Score: {props.score}</h3>
+      <h3>Score: {props.score} /40</h3>
       <h3 style={transition}>Best Score: {props.bestScore}</h3>
     </div>
   );

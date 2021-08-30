@@ -3,15 +3,15 @@ import MemoryCard from './components/MemoryCard'
 import ScoreBoard from './components/ScoreBoard'
 import React, { useState, useEffect } from 'react';
 
+
 function App() {
   const [selectedCards, setSelection] = useState([]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  const [log, setLog] = useState({});
   const [message, setMessage] = useState();
 
   function handleClick(event) {
-    let items = [...selectedCards, event.target.name]
+    let items = [...selectedCards, event.target.id]
 
     //log count 
     let loggedItem = items.reduce((obj, item) => {
@@ -21,33 +21,34 @@ function App() {
       obj[item]++;
       return obj;
     }, {})
+    console.log(loggedItem)
 
     //update score and best score
     let count = 0;
     for (let item in loggedItem) {
-      if (loggedItem[item] > 1) {
-        setSelection([]);
-        setLog({});
-        if (bestScore < score) {
-          setBestScore(score)
-        }
-        if(bestScore == 40){
+      count++;
+      if ((bestScore === 40) || (loggedItem[item] > 1)) {
+        if (bestScore === 40) {
           setMessage("Congratulations you get a full score!!")
         }
+        if (loggedItem[item] > 1) {
+          if (bestScore < score) {
+            setBestScore(score)
+          }
+        }
+        setSelection([]);
         loggedItem = {};
         count = 0;
         items = [];
-      } else {
-        count++;
+        break;
       }
-      setScore(count);
     }
-    setLog(loggedItem);
+    setScore(count);
     setSelection(items)
   }
-// show message when losing game
+  // show message when losing game
   useEffect(() => {
-    setMessage("Opps you have clicked this before. You scored " + score + "/40 points! ")
+    setMessage("Opps you have clicked this before.")
     const timeout = setTimeout(() => {
       setMessage(null)
     }, 1500)
@@ -56,7 +57,7 @@ function App() {
     }
   }, [bestScore])
 
-//mount initial message
+  //mount initial message
   useEffect(() => {
     setMessage("Let's get started !!!")
     const timeout = setTimeout(() => {
@@ -67,7 +68,7 @@ function App() {
     }
   }, [])
 
-//style of message
+  //style of message
   const textStyle = {
     textAlign: "center",
     backgroundColor: 'black',
@@ -91,7 +92,6 @@ function App() {
       <MemoryCard bestScore={bestScore} handleClick={handleClick} />
     </div>
   );
-
 }
 
 export default App;

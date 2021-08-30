@@ -12,14 +12,25 @@ function MemoryCard(props) {
 
 
     const card = insects.map((item, index) => {
-        let randomNum = Math.floor(Math.random() * 40)
+        let randomNum = Math.floor(Math.random() * 10)
         var url = "img/" + insects[randomNum] + ".jpg";
         return (
-            <div>
+            <div key={v4()}>
                 {index < 12 ?
-                    <div className="card" id={randomNum} name={insects[randomNum]} key={v4()} onClick={props.handleClick}>
-                        <img src={url} alt={insects[randomNum]} name={insects[randomNum]} />
-                        <p className="img-text" name={insects[randomNum]}>{insects[randomNum]} </p>
+                    <div className="card"
+                        id={insects[randomNum]} onClick={props.handleClick}>
+                        <img
+                            src={url}
+                            alt={insects[randomNum]}
+
+                            id={insects[randomNum]}
+                            onClick={props.handleClick} />
+                        <p
+                            className="img-text"
+                            id={insects[randomNum]}
+                            onClick={props.handleClick}>
+                            {insects[randomNum]}
+                        </p>
                     </div>
                     : null
                 }
@@ -28,7 +39,7 @@ function MemoryCard(props) {
     })
 
     return (
-        <div className="card-container" key={v4()}>
+        <div className="card-container">
             {card}
         </div>
     );
