@@ -21,7 +21,6 @@ function App() {
       obj[item]++;
       return obj;
     }, {})
-    console.log(loggedItem)
 
     //update score and best score
     let count = 0;
@@ -44,7 +43,7 @@ function App() {
       }
     }
     setScore(count);
-    setSelection(items)
+    setSelection(items);
   }
   // show message when losing game
   useEffect(() => {
